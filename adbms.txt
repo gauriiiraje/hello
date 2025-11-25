@@ -1,0 +1,97 @@
+insert into emp values(101,'gauri',23,'COJ','Mulund','CEO','CS',80000),
+(102,'aaditya',24,'mulberry meadows','kalyan','head','IT',70000),
+(103,'ABC',29,'bright','thane','clerk','finance',10000),
+(104,'arya',23,'palm rd','juhu','manager','DS',50000),
+(105,'rahul',27,'gagangiri tower','diva','manager','CS',20000);
+
+
+Display all records from the Employee table.
+SELECT *
+FROM Emp;
+
+Delete all records from the Employee table whose Department is finance.
+DELETE
+FROM EMP 
+WHERE Dept Name = ' Finance';
+
+Find all Employees whose name ends with 's!
+SELECT *
+FROM EMP 
+WHERE EmpName LIKE '%s';
+
+change Emp Id from 101 'to '501' whose Emp Name is 'ABC'.
+UPDATE EMP 
+SET EmpId=501 
+WHERE EmpId= 101 AND EmpName = 'ABC' ;
+
+Display names of Employee in Descending order.
+SELECT * 
+FROM EMP 
+ORDER BY EmpName DESC;
+
+Display names of Employee in Ascending order
+SELECT * 
+FROM EMP
+ORDER BY EmpName ASC;
+
+Find all Employees whose names second letter, is 'a' contains letter 'e' letter 'h'. ending with
+SELECT*
+FROM EMP
+WHERE EmpName LIKE '_a%e%h';
+
+Find all Employees whose salary is 20000 to 30000
+SELECT *
+FROM EMP
+WHERE Salary Between 20000 AND 30000;
+
+Find all Employees who is working in IT or Finance department.
+SELECT *
+FROM EMP
+WHERE DeptName IN ('IT', 'Finance');
+
+Find total Number of different Employees in table
+SELECT COUNT(DISTINCT EmpId) AS COUNT FROM EMP;
+
+find total of salary earned by all Employees.
+SELECT sum (salary)  AS SUM
+FROM EMP;
+
+find Average of Salary of Employees..
+SELECT AVG (Salary) AS AVERAGE 
+FROM EMP;
+
+Write a SQL query to change Emp table to EMPLOYEE DETAILS.
+ALTER TABLE EMP
+RENAME To EMPLOYEE DETAILS;
+
+Write a query to permanently remove Employee table. 
+DROP TABLE EMP;
+
+Write a query to add column Date of Joining in Employe table.
+ALTER TABLE EMP
+ADD DOJ VARCHAR(15);
+
+Find all Employees working in company earning more than 40000.
+SELECT *
+FROM EMP
+WHERE Salary > 40000 ;
+
+Find all Employees not working in 'Finance'
+SELECT *
+FROM EMP
+WHERE DeptName <>'Finance';
+
+Select top 3 earning Employees in Company.
+SELECT * 
+FROM EMP
+ORDER BY salary
+LIMIT 3;
+
+find minimum salary earned by employees
+select min(salary) as minimum
+from emp;
+
+Retrieve no of employees in various department
+Select DeptName, Count(EmpId) "Total Emp"
+from emp
+group by DeptName;
